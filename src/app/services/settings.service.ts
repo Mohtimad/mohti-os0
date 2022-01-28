@@ -6,7 +6,7 @@ import { Injectable } from '@angular/core';
 export class SettingsService {
   private data: { [key: string]: any } = {
     backgroundActive: true,
-    backgroundURL: '../../assets/default.jpg',
+    backgroundURL: 'assets/default.jpg',
     primaryColor: '#8400ff',
     secondaryColor: '#2d1742',
   };
