@@ -1,0 +1,42 @@
+<div
+  [ngStyle]="{
+    display: program.hidden ? 'none' : 'unset'
+  }"
+>
+  <div
+    (click)="onSelect($event)"
+    class="window"
+    [ngStyle]="{
+      top: getPosition('top') + 'vh',
+      left: getPosition('left') + 'vw',
+      width: getSize('width'),
+      height: getSize('height'),
+      minHeight: program?.minHeight,
+      minWidth: program?.minWidth,
+      transitionProperty: canMove
+        ? 'width, height '
+        : 'width, height , top, left',
+      transitionDuration: '100ms',
+      transitionTimingFunction: 'ease-in-out'
+    }"
+  >
+    <header
+      class="window__header"
+      (click)="onMove($event)"
+      [ngStyle]="{
+        cursor: program.status === 'fullscreen' ? 'auto' : 'move',
+        backgroundColor: getColor
+      }"
+    >
+      <h2>{{ program.title | titlecase }}</h2>
+      <span class="window__settings">
+        <button (click)="onHide()">-</button>
+        <button *ngIf="!isMobile()" (click)="onSwapFullScreen()">•</button>
+        <button (click)="onClose()">x</button>
+      </span>
+    </header>
+    <div class="window__program">
+      <ng-template appProgram></ng-template>
+    </div>
+  </div>
+</div>

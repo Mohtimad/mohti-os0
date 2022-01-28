@@ -1,0 +1,26 @@
+<div
+  id="desk"
+  #desk
+  (mousemove)="onMouseMove($event, desk)"
+  [style]="background"
+>
+  <ul class="app__list">
+    <li *ngFor="let program of programs; let i = index" class="app__item">
+      <button
+        (click)="onOpen(program.component, i)"
+        [ngStyle]="{
+          border: isOpen(program.component)
+            ? 'green solid 4px'
+            : 'transparent solid 4px'
+        }"
+      >
+        <img [src]="program.icon" alt="" />
+      </button>
+    </li>
+  </ul>
+  <app-window
+    *ngFor="let window of windows; let i = index"
+    [deskData]="deskData"
+    [index]="i"
+  ></app-window>
+</div>

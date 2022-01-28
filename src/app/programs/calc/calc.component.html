@@ -1,0 +1,50 @@
+<div class="calc">
+  <p class="calc__display">{{ display }}</p>
+
+  <table class="calc__keys" (click)="touch($event)">
+    <tr>
+      <td><button>+</button></td>
+      <td><button>-</button></td>
+      <td><button>*</button></td>
+      <td><button>/</button></td>
+    </tr>
+    <tr>
+      <td><button>7</button></td>
+      <td><button>8</button></td>
+      <td><button>9</button></td>
+      <td><button (click)="deleteChar()">del</button></td>
+    </tr>
+    <tr>
+      <td><button>4</button></td>
+      <td><button>5</button></td>
+      <td><button>6</button></td>
+      <td><button>(</button></td>
+    </tr>
+    <tr>
+      <td><button>1</button></td>
+      <td><button>2</button></td>
+      <td><button>3</button></td>
+      <td><button>)</button></td>
+    </tr>
+    <tr>
+      <td><button>0</button></td>
+      <td><button>.</button></td>
+      <td>
+        <button
+          [style]="{ backgroundColor: 'red', color: 'white' }"
+          (click)="clear()"
+        >
+          AC
+        </button>
+      </td>
+      <td>
+        <button
+          [style]="{ backgroundColor: 'blue', color: 'white' }"
+          (click)="calc()"
+        >
+          =
+        </button>
+      </td>
+    </tr>
+  </table>
+</div>

@@ -1,0 +1,46 @@
+<div class="settings">
+  <h3>Interface</h3>
+  <form #formData class="settings__form">
+    <div>
+      <input
+        name="primaryColor"
+        id="primaryColor"
+        type="color"
+        [value]="primaryColor"
+      />
+      <input
+        name="secondaryColor"
+        id="secondaryColor"
+        type="color"
+        [value]="secondaryColor"
+      />
+    </div>
+    <div>
+      <label for="backgroundActive">Activé Fond d'écran ?</label>
+      <input
+        #bgActive
+        [checked]="backgroundActive"
+        type="checkbox"
+        name="backgroundActive"
+        id="backgroundActive"
+      />
+    </div>
+    <div [style]="{ display: bgActive.checked ? 'unset' : 'none' }">
+      <select
+        #select
+        [value]="backgroundURL"
+        name="backgroundURL"
+        id="backgroundURL"
+      >
+        <option value="../../assets/default.jpg">Default</option>
+        <option value="../../assets/cloud.jpg">Nuage</option>
+        <option value="../../assets/moutain.jpg">Montagne</option>
+        <option value="../../assets/plain.jpg">Plaine</option>
+        <option value="../../assets/beach.jpg">Plage</option>
+      </select>
+      <br />
+      <img width="100px" height="70px" [src]="select.value" alt="" />
+    </div>
+    <button type="button" (click)="onSubmit(formData)">Appliquer</button>
+  </form>
+</div>

@@ -1,0 +1,42 @@
+.calc {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  max-width: 500px;
+  &__display {
+    white-space: nowrap;
+    text-overflow: clip;
+    padding: 0 10px;
+    background-color: white;
+    height: 50px;
+    text-align: end;
+    font-size: 2rem;
+    overflow: hidden;
+  }
+  &__keys {
+    padding: 20px 0;
+    > div:nth-child(n) {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    td {
+      width: 25%;
+      height: 50px;
+      button {
+        background-color: #c1ddf8;
+        border-radius: 30px;
+        border: unset;
+        font-size: 1rem;
+        cursor: pointer;
+        width: 100%;
+        height: 100%;
+        &:hover {
+          border: #e7a88a solid 2px;
+        }
+      }
+    }
+  }
+}
