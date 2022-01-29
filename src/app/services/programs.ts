@@ -27,8 +27,8 @@ export const programs = [
     left: 25,
     minWidth: '300px',
     minHeight: '400px',
-    width: 'auto',
-    height: 'auto',
+    width: '300px',
+    height: '400px',
   },
   {
     hidden: false,
@@ -59,7 +59,16 @@ export const programs = [
 ];
 
 export const programsComponents = [
-  SettingsComponent,
-  CalcComponent,
-  BrowserComponent,
+  {
+    component: SettingsComponent,
+    name: 'SettingsComponent',
+  },
+  {
+    component: CalcComponent,
+    name: 'CalcComponent',
+  },
+  {
+    component: BrowserComponent,
+    name: 'BrowserComponent',
+  },
 ];

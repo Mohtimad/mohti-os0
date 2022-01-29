@@ -1,14 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
-import { Program, programs } from './programs';
-
-type Size =
-  | 'minHeight'
-  | 'height'
-  | 'maxHeight'
-  | 'minWidth'
-  | 'width'
-  | 'maxWidth';
+import { Program } from './programs';
 
 @Injectable({
   providedIn: 'root',

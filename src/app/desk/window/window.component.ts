@@ -12,13 +12,12 @@ import { ProgramDirective } from './program.directive';
   styleUrls: ['./window.component.scss'],
 })
 export class WindowComponent implements OnInit {
+  @ViewChild(ProgramDirective, { static: true }) appProgram!: ProgramDirective;
+  component!: any;
   @Input() deskData!: Desk;
   @Input() index!: number;
-  @ViewChild(ProgramDirective, { static: true }) appProgram!: ProgramDirective;
   program!: Program;
   subscription!: Subscription;
-
-  str = 'CalcComponent';
 
   /*
    ** this data is for calculating the
@@ -42,10 +41,11 @@ export class WindowComponent implements OnInit {
 
     const component = programsComponents.find(
       (c) => c.name === this.program.component
-    );
+    )?.component;
     const viewContainerRef = this.appProgram.viewContainerRef;
     if (component) {
-      viewContainerRef.createComponent(component);
+      this.component = component;
+      viewContainerRef.createComponent(this.component);
     }
   }
 
